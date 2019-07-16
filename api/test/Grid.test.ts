@@ -1,5 +1,6 @@
 import assert from "assert";
 import { Grid } from '../src/robotics/Grid';
+import { Orientations } from '../src/robotics/Orientation';
 
 
 describe("Grid", () => {
@@ -20,7 +21,7 @@ describe("Grid", () => {
     })
 
     it("should be able to place a robot", () => {
-        let robot = new Grid(3,4).placeRobot(2,3);
+        let robot = new Grid(3,4).placeRobot(2,3, Orientations.North);
 
         assert.equal(robot.position.x, 2);
         assert.equal(robot.position.y, 3);
