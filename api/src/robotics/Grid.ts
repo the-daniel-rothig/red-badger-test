@@ -1,4 +1,5 @@
 import { Robot } from './Robot';
+import { Orientations } from './Orientation';
 
 export class Grid {
     minX : number = 0;
@@ -17,6 +18,6 @@ export class Grid {
     }
 
     placeRobot(x: number, y:number) : Robot {
-        return new Robot(x,y, this);
+        return new Robot(x,y, Orientations.North, this);
     }
 }
