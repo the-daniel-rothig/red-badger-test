@@ -1,8 +1,8 @@
 import { Vector } from './Vector';
 
 export type Orientation = {
-    name: string;
-    translation: Vector;
+    readonly name: string;
+    readonly translation: Vector;
     left(): Orientation;
     right(): Orientation;
 }

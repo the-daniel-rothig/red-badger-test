@@ -3,16 +3,17 @@ import { Grid } from './Grid';
 import { Orientation, Orientations } from './Orientation';
 
 export class Robot {
-    position : Vector;
-    orientation : Orientation;
-    isLost : boolean = false;
+    readonly position : Vector;
+    readonly orientation : Orientation;
+    readonly isLost : boolean;
 
-    private grid : Grid;
+    private readonly grid : Grid;
 
-    constructor(position : Vector, orientation: Orientation, grid : Grid) {
+    constructor(position : Vector, orientation: Orientation, grid : Grid, isLost:boolean = false) {
         this.position = position;        
         this.orientation = orientation;
         this.grid = grid;
+        this.isLost = isLost
     }
     
     stepForward() : Robot {
@@ -24,9 +25,7 @@ export class Robot {
 
         if (newPosition.x < this.grid.minX || newPosition.x > this.grid.maxX || newPosition.y < this.grid.minY || newPosition.y > this.grid.maxY) {
             this.grid.addCliff(this);
-            const newRobot = new Robot(this.position, this.orientation, this.grid)
-            newRobot.isLost = true;
-            return newRobot;
+            return new Robot(this.position, this.orientation, this.grid, true)
         } else {
             return new Robot(newPosition, this.orientation, this.grid);
         }

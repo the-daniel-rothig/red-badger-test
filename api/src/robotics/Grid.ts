@@ -3,11 +3,11 @@ import { Orientations, Orientation } from './Orientation';
 import { Vector } from './Vector';
 
 export class Grid {
-    minX : number = 0;
-    maxX : number = 0;
+    readonly minX : number = 0;
+    readonly maxX : number = 0;
     
-    minY : number = 0;
-    maxY : number = 0;
+    readonly minY : number = 0;
+    readonly maxY : number = 0;
 
     private knownCliffs : Robot[] = [];
 

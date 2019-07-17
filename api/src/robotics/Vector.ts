@@ -4,8 +4,8 @@ export class Vector {
         this.y = y;
     }
 
-    x: number;
-    y: number;
+    readonly x: number;
+    readonly y: number;
 
     add(other:Vector) {
         return Vector.add(this, other);

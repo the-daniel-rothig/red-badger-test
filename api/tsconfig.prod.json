@@ -3,9 +3,11 @@
   "compilerOptions": {
     "sourceMap": false
   },
+  "include": [
+      "src/**/*.ts"
+  ],
   "exclude": [
-    "src/**/*.test.ts",
-    "src/**/*.mock.ts",
+    "test/**/*.ts",
     "src/public/"
   ]
 }
