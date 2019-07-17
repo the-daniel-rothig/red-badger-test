@@ -24,6 +24,8 @@ I also wanted to show off idiomatic use of react-redux and redux-thunk, which is
 
 I skipped unit tests for the UI and for the API endpoint itself, because I expected this wouldn't be particularly interesting from an assessment point of view. In the field, I would write tests (in order of priority) for the action generators, reducers, and and the HOCs generated with `connect()`. For the latter, I would use enzyme for structural tests. I would also write an integration test for the API, spinning up an instance of it and calling the `/grid` endpoint over HTTP.
 
+Another shortcut I have taken is skipping any comment-based documentation. In the field, my classes and their methods/public fields would all have documentation.
+
 I have designed in some resilience in the parser but would want to exend this. Particularly, I would add more detailed feedback for parsing errors. In this example I handle parsing errors by throwing internal server errors; in the field, I would wrap such errors into the response body.
 
 I would like to handle race conditions with subsequent `fetch` requests better, discarding in-flight fetches when a new one is triggered.
