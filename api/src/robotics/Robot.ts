@@ -7,7 +7,7 @@ export class Robot {
     readonly orientation : Orientation;
     readonly isLost : boolean;
 
-    private readonly grid : Grid;
+    readonly grid : Grid;
 
     constructor(position : Vector, orientation: Orientation, grid : Grid, isLost:boolean = false) {
         this.position = position;        
@@ -24,8 +24,7 @@ export class Robot {
         const newPosition = this.position.add(this.orientation.translation);
 
         if (newPosition.x < this.grid.minX || newPosition.x > this.grid.maxX || newPosition.y < this.grid.minY || newPosition.y > this.grid.maxY) {
-            this.grid.addCliff(this);
-            return new Robot(this.position, this.orientation, this.grid, true)
+            return new Robot(this.position, this.orientation, this.grid.withCliff(this), true)
         } else {
             return new Robot(newPosition, this.orientation, this.grid);
         }

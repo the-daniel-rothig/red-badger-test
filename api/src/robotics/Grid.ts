@@ -24,9 +24,11 @@ export class Grid {
         return new Robot(new Vector(x,y), orientation, this);
     }
 
-    addCliff(robot: Robot) : void {
-        // beware, mutability!
-        this.knownCliffs.push(robot);
+    withCliff(robot: Robot) : Grid {
+        const grid = new Grid(this.maxX, this.maxY)
+        grid.knownCliffs = Array.from(this.knownCliffs);
+        grid.knownCliffs.push(robot);
+        return grid;
     }
 
     isKnownCliff(robot: Robot) : boolean {

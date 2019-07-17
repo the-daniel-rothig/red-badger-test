@@ -28,7 +28,7 @@ export class GridParser {
 
     *getRobots() : IterableIterator<Robot> {
         const lines = this.input.split("\n");
-        const grid = GridParser.GetGrid(lines[0]);
+        let grid = GridParser.GetGrid(lines[0]);
 
         for (let i = 1; i < lines.length; i++) {
             if (this.emptyLineRegex.test(lines[i])) {
@@ -62,6 +62,7 @@ export class GridParser {
             }
             
             yield robot;
+            grid = robot.grid;
         }
     }
 

@@ -40,8 +40,8 @@ describe("Robot", () => {
         const grid = new Grid(5,5);
 
         let lostRobot = grid.placeRobot(1,5, Orientations.North).stepForward();
-        let savedRobot = grid.placeRobot(1,5, Orientations.North).stepForward();
+        let savedRobot = lostRobot.grid.placeRobot(1,5, Orientations.North).stepForward();
 
-        assert.deepEqual(savedRobot, grid.placeRobot(1,5, Orientations.North));
+        assert.deepEqual(savedRobot, lostRobot.grid.placeRobot(1,5, Orientations.North));
     })
 })
